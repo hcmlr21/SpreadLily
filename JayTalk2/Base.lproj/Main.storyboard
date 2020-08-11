@@ -226,6 +226,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W5H-8i-tEQ"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="l44-Qa-qFJ" id="0nS-Eo-s7n"/>
+                        <outlet property="emailTextField" destination="LdK-yG-m0v" id="6tr-PA-yDk"/>
+                        <outlet property="nameTextField" destination="dgT-AL-uMs" id="L9Z-4P-5Ap"/>
+                        <outlet property="passwordTextField" destination="vde-kY-cZw" id="B4m-fb-Nve"/>
+                        <outlet property="profileImageView" destination="nw2-OP-bis" id="eZS-lK-qtc"/>
+                        <outlet property="signInButton" destination="Eed-5a-2rB" id="QtH-L6-Zth"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BlR-TD-m9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

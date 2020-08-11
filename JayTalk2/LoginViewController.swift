@@ -16,7 +16,9 @@ class LoginViewController: UIViewController {
     @objc func loginEvent() {
         if let email = self.emailTextField.text, let password = self.passwordTextField.text {
             Auth.auth().signIn(withEmail: email , password: password) { (user, error) in
-                self.alert(message: error.debugDescription)
+                if(error != nil) {
+                    self.alert(message: error.debugDescription)
+                }
             }
         } else {
             self.alert(message: "회원정보 오류")
@@ -55,6 +57,9 @@ class LoginViewController: UIViewController {
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        try! Auth.auth().signOut()
+        
         self.loginButton.addTarget(self, action: #selector(self.loginEvent), for: .touchUpInside)
         self.signInButton.addTarget(self, action: #selector(self.presentSignIn), for: .touchUpInside)
         
