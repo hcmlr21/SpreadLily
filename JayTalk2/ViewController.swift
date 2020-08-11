@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             let loginVC = self.storyboard?.instantiateViewController(identifier: "loginViewController") as! LoginViewController
             loginVC.modalPresentationStyle = .fullScreen
             
-            self.present(loginVC, animated: true, completion: nil)
+            self.present(loginVC, animated: false, completion: nil)
         }
     }
     
@@ -57,7 +57,6 @@ class ViewController: UIViewController {
             m.center.equalTo(self.view)
         }
         box.image = #imageLiteral(resourceName: "loading_icon")
-        
         
         self.remoteConfig = RemoteConfig.remoteConfig()
         let remoteConfigSetting = RemoteConfigSettings()

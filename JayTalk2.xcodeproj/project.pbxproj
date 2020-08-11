@@ -17,6 +17,7 @@
 		485327EC24E2947C0054D725 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 485327EB24E2947C0054D725 /* GoogleService-Info.plist */; };
 		485327EE24E296B30054D725 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 485327ED24E296B30054D725 /* RemoteConfigDefaults.plist */; };
 		485327F024E299A90054D725 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485327EF24E299A90054D725 /* LoginViewController.swift */; };
+		485327F224E2AF1D0054D725 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485327F124E2AF1D0054D725 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		485327EB24E2947C0054D725 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		485327ED24E296B30054D725 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		485327EF24E299A90054D725 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		485327F124E2AF1D0054D725 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		527144AA775A8A1E02CA026A /* Pods_JayTalk2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JayTalk2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0155B6BE4B0BF53BAF29E95 /* Pods-JayTalk2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JayTalk2.debug.xcconfig"; path = "Target Support Files/Pods-JayTalk2/Pods-JayTalk2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +75,7 @@
 				485327D924E2912D0054D725 /* SceneDelegate.swift */,
 				485327DB24E2912D0054D725 /* ViewController.swift */,
 				485327EF24E299A90054D725 /* LoginViewController.swift */,
+				485327F124E2AF1D0054D725 /* SignInViewController.swift */,
 				485327DD24E2912D0054D725 /* Main.storyboard */,
 				485327E024E291300054D725 /* Assets.xcassets */,
 				485327E224E291300054D725 /* LaunchScreen.storyboard */,
@@ -220,6 +223,7 @@
 				485327F024E299A90054D725 /* LoginViewController.swift in Sources */,
 				485327DC24E2912D0054D725 /* ViewController.swift in Sources */,
 				485327D824E2912D0054D725 /* AppDelegate.swift in Sources */,
+				485327F224E2AF1D0054D725 /* SignInViewController.swift in Sources */,
 				485327DA24E2912D0054D725 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
