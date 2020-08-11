@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E03B0302A04FFCBB0AFA293 /* Pods_JayTalk2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527144AA775A8A1E02CA026A /* Pods_JayTalk2.framework */; };
 		485327D824E2912D0054D725 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485327D724E2912D0054D725 /* AppDelegate.swift */; };
 		485327DA24E2912D0054D725 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485327D924E2912D0054D725 /* SceneDelegate.swift */; };
 		485327DC24E2912D0054D725 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485327DB24E2912D0054D725 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02E94609E07ED0C5B136FB16 /* Pods-JayTalk2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JayTalk2.release.xcconfig"; path = "Target Support Files/Pods-JayTalk2/Pods-JayTalk2.release.xcconfig"; sourceTree = "<group>"; };
 		485327D424E2912D0054D725 /* JayTalk2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JayTalk2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		485327D724E2912D0054D725 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		485327D924E2912D0054D725 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		485327E024E291300054D725 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		485327E324E291300054D725 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		485327E524E291300054D725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		527144AA775A8A1E02CA026A /* Pods_JayTalk2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JayTalk2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0155B6BE4B0BF53BAF29E95 /* Pods-JayTalk2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JayTalk2.debug.xcconfig"; path = "Target Support Files/Pods-JayTalk2/Pods-JayTalk2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E03B0302A04FFCBB0AFA293 /* Pods_JayTalk2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				485327D624E2912D0054D725 /* JayTalk2 */,
 				485327D524E2912D0054D725 /* Products */,
+				7D8011A1D3CE9B7D3A860A81 /* Pods */,
+				876F1EC8F4D8A46D63164A7C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = JayTalk2;
 			sourceTree = "<group>";
 		};
+		7D8011A1D3CE9B7D3A860A81 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0155B6BE4B0BF53BAF29E95 /* Pods-JayTalk2.debug.xcconfig */,
+				02E94609E07ED0C5B136FB16 /* Pods-JayTalk2.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		876F1EC8F4D8A46D63164A7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				527144AA775A8A1E02CA026A /* Pods_JayTalk2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 485327E824E291300054D725 /* Build configuration list for PBXNativeTarget "JayTalk2" */;
 			buildPhases = (
+				0CC668C9FCCEF01DC5DB995E /* [CP] Check Pods Manifest.lock */,
 				485327D024E2912D0054D725 /* Sources */,
 				485327D124E2912D0054D725 /* Frameworks */,
 				485327D224E2912D0054D725 /* Resources */,
+				EB77A3A4F8710AF9AE825754 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CC668C9FCCEF01DC5DB995E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JayTalk2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB77A3A4F8710AF9AE825754 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JayTalk2/Pods-JayTalk2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JayTalk2/Pods-JayTalk2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JayTalk2/Pods-JayTalk2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		485327D024E2912D0054D725 /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		485327E924E291300054D725 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0155B6BE4B0BF53BAF29E95 /* Pods-JayTalk2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +370,7 @@
 		};
 		485327EA24E291300054D725 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02E94609E07ED0C5B136FB16 /* Pods-JayTalk2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
