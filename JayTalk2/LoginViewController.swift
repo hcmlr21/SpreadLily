@@ -18,6 +18,8 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: email , password: password) { (user, error) in
                 self.alert(message: error.debugDescription)
             }
+        } else {
+            self.alert(message: "회원정보 오류")
         }
     }
     
@@ -37,7 +39,6 @@ class LoginViewController: UIViewController {
         alertController.addAction(okAction)
         
         present(alertController, animated: true, completion: nil)
-        
     }
     
     // MARK: - IBOutlets
