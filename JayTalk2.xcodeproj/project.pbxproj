@@ -18,6 +18,8 @@
 		485327EE24E296B30054D725 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 485327ED24E296B30054D725 /* RemoteConfigDefaults.plist */; };
 		485327F024E299A90054D725 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485327EF24E299A90054D725 /* LoginViewController.swift */; };
 		485327F224E2AF1D0054D725 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485327F124E2AF1D0054D725 /* SignInViewController.swift */; };
+		4896FAC324E56D5000C74E58 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4896FAC224E56D5000C74E58 /* PeopleViewController.swift */; };
+		4896FAC624E56EAE00C74E58 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4896FAC524E56EAE00C74E58 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		485327ED24E296B30054D725 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		485327EF24E299A90054D725 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		485327F124E2AF1D0054D725 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		4896FAC224E56D5000C74E58 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		4896FAC524E56EAE00C74E58 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		527144AA775A8A1E02CA026A /* Pods_JayTalk2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JayTalk2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0155B6BE4B0BF53BAF29E95 /* Pods-JayTalk2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JayTalk2.debug.xcconfig"; path = "Target Support Files/Pods-JayTalk2/Pods-JayTalk2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +75,8 @@
 		485327D624E2912D0054D725 /* JayTalk2 */ = {
 			isa = PBXGroup;
 			children = (
+				4896FAC424E56E9900C74E58 /* Model */,
+				4896FAC124E56CFF00C74E58 /* TabBar */,
 				485327D724E2912D0054D725 /* AppDelegate.swift */,
 				485327D924E2912D0054D725 /* SceneDelegate.swift */,
 				485327DB24E2912D0054D725 /* ViewController.swift */,
@@ -84,6 +90,22 @@
 				485327ED24E296B30054D725 /* RemoteConfigDefaults.plist */,
 			);
 			path = JayTalk2;
+			sourceTree = "<group>";
+		};
+		4896FAC124E56CFF00C74E58 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4896FAC224E56D5000C74E58 /* PeopleViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		4896FAC424E56E9900C74E58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4896FAC524E56EAE00C74E58 /* UserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7D8011A1D3CE9B7D3A860A81 /* Pods */ = {
@@ -221,10 +243,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				485327F024E299A90054D725 /* LoginViewController.swift in Sources */,
+				4896FAC624E56EAE00C74E58 /* UserModel.swift in Sources */,
 				485327DC24E2912D0054D725 /* ViewController.swift in Sources */,
 				485327D824E2912D0054D725 /* AppDelegate.swift in Sources */,
 				485327F224E2AF1D0054D725 /* SignInViewController.swift in Sources */,
 				485327DA24E2912D0054D725 /* SceneDelegate.swift in Sources */,
+				4896FAC324E56D5000C74E58 /* PeopleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

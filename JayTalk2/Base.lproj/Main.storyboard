@@ -59,7 +59,7 @@
                                     <constraint firstAttribute="height" constant="40" id="e60-gg-ezJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                         <color key="value" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -173,7 +173,7 @@
                                     <constraint firstAttribute="height" constant="40" id="erj-Ec-kfA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
                                         <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -274,18 +274,80 @@
         <!--PeoPle-->
         <scene sceneID="6qT-VS-Vqj">
             <objects>
-                <viewController id="RE0-Pk-Suo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="peopleViewController" id="RE0-Pk-Suo" customClass="PeopleViewController" customModule="JayTalk2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6kk-cU-Mjd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sAI-1b-UNj">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="70" id="wLl-tG-mKf" customClass="PeoPleTableViewCell" customModule="JayTalk2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wLl-tG-mKf" id="K6D-od-YKd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1yh-Er-wve">
+                                                    <rect key="frame" x="20" y="11" width="48" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byz-Gc-QmS">
+                                                    <rect key="frame" x="329" y="11" width="75" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uj5-Ic-Rd8">
+                                                            <rect key="frame" x="16" y="14" width="42" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQY-uq-PaF">
+                                                    <rect key="frame" x="76" y="25" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="conditionCommentBackground" destination="Byz-Gc-QmS" id="saR-GZ-1FA"/>
+                                            <outlet property="conditionCommentLabel" destination="uj5-Ic-Rd8" id="oEb-H0-ghI"/>
+                                            <outlet property="nameLabel" destination="GQY-uq-PaF" id="f9C-gh-hXu"/>
+                                            <outlet property="profileImageView" destination="1yh-Er-wve" id="39c-S8-liy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RE0-Pk-Suo" id="Pon-Z5-ZUc"/>
+                                    <outlet property="delegate" destination="RE0-Pk-Suo" id="x1Q-up-TYy"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GNP-cK-gcX" firstAttribute="trailing" secondItem="sAI-1b-UNj" secondAttribute="trailing" id="6Ri-nN-GwY"/>
+                            <constraint firstItem="sAI-1b-UNj" firstAttribute="leading" secondItem="GNP-cK-gcX" secondAttribute="leading" id="BmF-LQ-lbd"/>
+                            <constraint firstItem="GNP-cK-gcX" firstAttribute="bottom" secondItem="sAI-1b-UNj" secondAttribute="bottom" id="gZG-Hv-XYQ"/>
+                            <constraint firstItem="sAI-1b-UNj" firstAttribute="top" secondItem="GNP-cK-gcX" secondAttribute="top" id="hKr-yd-9UK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GNP-cK-gcX"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="PeoPle" id="6XU-D9-R3u"/>
+                    <connections>
+                        <outlet property="tableView" destination="sAI-1b-UNj" id="PjM-kI-HZU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjv-8h-Nf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2687" y="-538"/>
+            <point key="canvasLocation" x="2686.9565217391305" y="-538.39285714285711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dt9-iM-hcD">
