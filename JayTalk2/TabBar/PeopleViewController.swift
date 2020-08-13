@@ -31,7 +31,7 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if(section == 0) {
-            return "나"
+            return "내 프로필"
         } else if(section == 1) {
             return "친구"
         }
