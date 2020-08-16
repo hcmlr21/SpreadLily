@@ -46,7 +46,7 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
                         storageRef.downloadURL { (url, error) in
                             let value = [
                                 "userName":name,
-                                "profileUrl":url?.absoluteString,
+                                "profileImageUrl":url?.absoluteString,
                                 "uid":myUid!
                             ]
                             Database.database().reference().child("users").child(myUid!).setValue(value) { (error, ref) in

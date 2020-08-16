@@ -73,5 +73,8 @@ class LoginViewController: UIViewController {
                 self.present(mainVC, animated: false, completion: nil)
             }
         }
+        
+        self.emailTextField.text = "jay@naver.com"
+        self.passwordTextField.text = "123456"
     }
 }

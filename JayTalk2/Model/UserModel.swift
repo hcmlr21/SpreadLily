@@ -9,7 +9,7 @@
 import Foundation
 
 class UserModel: NSObject {
-    @objc var profileUrl: String?
+    @objc var profileImageUrl: String?
     @objc var userName: String?
     @objc var uid: String?
     @objc var conditionComment: String?

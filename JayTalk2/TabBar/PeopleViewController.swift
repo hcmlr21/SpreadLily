@@ -30,12 +30,13 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var title: String = ""
         if(section == 0) {
-            return "내 프로필"
+            title = "내 프로필"
         } else if(section == 1) {
-            return "친구"
+            title = "친구"
         }
-        return ""
+        return title
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -65,7 +66,7 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
             
         
         let profileImageView = cell.profileImageView!
-        let imageUrl = URL(string: userInfo.profileUrl!)
+        let imageUrl = URL(string: userInfo.profileImageUrl!)
         profileImageView.snp.makeConstraints { (m) in
             m.centerY.equalTo(cell)
             m.left.equalTo(cell).offset(10)
@@ -108,6 +109,17 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if(indexPath.section == 1) {
+            let viewIdentifier: String = "chatRoomViewController"
+            let chatRoomVC = self.storyboard?.instantiateViewController(identifier: viewIdentifier) as! ChatRoomViewController
+            chatRoomVC.destinationUid = friendsInfo[indexPath.row].uid
+            self.navigationController?.pushViewController(chatRoomVC, animated: true)
+        }
+    }
+    
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,6 +146,12 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
             }
         })
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.tableView.reloadData()
     }
 }
 
