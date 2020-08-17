@@ -36,7 +36,6 @@ class ChatRoomsViewController: UIViewController,UITableViewDataSource, UITableVi
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
-    
     // MARK: - IBActions
     
     // MARK: - Delegates And DataSource
@@ -92,7 +91,6 @@ class ChatRoomsViewController: UIViewController,UITableViewDataSource, UITableVi
         self.tableView.deselectRow(at: indexPath, animated: true)
         
         let usersCount = self.chatRooms[indexPath.row].users.count
-        
         if(usersCount > 2) {
             
         } else {
@@ -100,7 +98,6 @@ class ChatRoomsViewController: UIViewController,UITableViewDataSource, UITableVi
             chatRoomVC.destinationUid = self.destinationsUids[indexPath.row][0]
             self.navigationController?.pushViewController(chatRoomVC, animated: true)
         }
-        
     }
     
     // MARK: - Life Cycles

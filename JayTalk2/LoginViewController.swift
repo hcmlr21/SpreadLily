@@ -77,4 +77,9 @@ class LoginViewController: UIViewController {
         self.emailTextField.text = "jay@naver.com"
         self.passwordTextField.text = "123456"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewDidLoad()
+    }
 }

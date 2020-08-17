@@ -23,6 +23,8 @@
 		48BD87CA24E681AB0051BC4E /* ChatRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BD87C924E681AB0051BC4E /* ChatRoomsViewController.swift */; };
 		48BD87CC24E7AE2A0051BC4E /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BD87CB24E7AE2A0051BC4E /* ChatModel.swift */; };
 		48BD87CE24E7B0420051BC4E /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BD87CD24E7B0420051BC4E /* ChatRoomViewController.swift */; };
+		48E0DEF324E98285005F43AE /* GroupChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E0DEF224E98285005F43AE /* GroupChatRoomViewController.swift */; };
+		48E0DEF524E984F0005F43AE /* SelectFrinedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E0DEF424E984F0005F43AE /* SelectFrinedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		48BD87C924E681AB0051BC4E /* ChatRoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomsViewController.swift; sourceTree = "<group>"; };
 		48BD87CB24E7AE2A0051BC4E /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		48BD87CD24E7B0420051BC4E /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
+		48E0DEF224E98285005F43AE /* GroupChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatRoomViewController.swift; sourceTree = "<group>"; };
+		48E0DEF424E984F0005F43AE /* SelectFrinedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFrinedViewController.swift; sourceTree = "<group>"; };
 		527144AA775A8A1E02CA026A /* Pods_JayTalk2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JayTalk2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0155B6BE4B0BF53BAF29E95 /* Pods-JayTalk2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JayTalk2.debug.xcconfig"; path = "Target Support Files/Pods-JayTalk2/Pods-JayTalk2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,9 +105,11 @@
 		4896FAC124E56CFF00C74E58 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				48E0DEF424E984F0005F43AE /* SelectFrinedViewController.swift */,
 				4896FAC224E56D5000C74E58 /* PeopleViewController.swift */,
 				48BD87C924E681AB0051BC4E /* ChatRoomsViewController.swift */,
 				48BD87CD24E7B0420051BC4E /* ChatRoomViewController.swift */,
+				48E0DEF224E98285005F43AE /* GroupChatRoomViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -254,10 +260,12 @@
 				485327F024E299A90054D725 /* LoginViewController.swift in Sources */,
 				4896FAC624E56EAE00C74E58 /* UserModel.swift in Sources */,
 				485327DC24E2912D0054D725 /* ViewController.swift in Sources */,
+				48E0DEF324E98285005F43AE /* GroupChatRoomViewController.swift in Sources */,
 				485327D824E2912D0054D725 /* AppDelegate.swift in Sources */,
 				485327F224E2AF1D0054D725 /* SignInViewController.swift in Sources */,
 				485327DA24E2912D0054D725 /* SceneDelegate.swift in Sources */,
 				4896FAC324E56D5000C74E58 /* PeopleViewController.swift in Sources */,
+				48E0DEF524E984F0005F43AE /* SelectFrinedViewController.swift in Sources */,
 				48BD87CE24E7B0420051BC4E /* ChatRoomViewController.swift in Sources */,
 				48BD87CA24E681AB0051BC4E /* ChatRoomsViewController.swift in Sources */,
 				48BD87CC24E7AE2A0051BC4E /* ChatModel.swift in Sources */,

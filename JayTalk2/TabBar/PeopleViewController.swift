@@ -18,6 +18,31 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
     var friendsInfo: [UserModel] = []
     
     // MARK: - Methods
+    func addSelectFriendButton() {
+        let selectFriendButton = UIButton()
+        self.view.addSubview(selectFriendButton)
+        selectFriendButton.snp.makeConstraints { (m) in
+            m.bottom.equalTo(self.view).offset(-90)
+            m.right.equalTo(self.view).offset(-20)
+            m.width.height.equalTo(50)
+        }
+        selectFriendButton.backgroundColor = UIColor.black
+        selectFriendButton.addTarget(self, action: #selector(self.showSelectFriendViewController), for: .touchUpInside)
+        selectFriendButton.layer.cornerRadius = 25
+        selectFriendButton.layer.masksToBounds = true
+        
+//
+//        let label = UILabel()
+//        label.text = "+"
+//        label.textColor = UIColor.white
+//        selectFriendButton.addSubview(label)
+    }
+    
+    @objc func showSelectFriendViewController() {
+        let selectFrinedVC = self.storyboard?.instantiateViewController(identifier: "selectFrinedViewController") as! SelectFrinedViewController
+        selectFrinedVC.pvc = self
+        self.present(selectFrinedVC, animated: true, completion: nil)
+    }
     
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -127,6 +152,7 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
         self.myUid = Auth.auth().currentUser?.uid
         
         Database.database().reference().child("users").observe(.value, with: { (dataSnapShot) in
+            self.myInfo.removeAll()
             self.friendsInfo.removeAll()
             
             for item in dataSnapShot.children.allObjects as! [DataSnapshot] {
@@ -145,7 +171,8 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
                 self.tableView.reloadData()
             }
         })
-        
+     
+        self.addSelectFriendButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
