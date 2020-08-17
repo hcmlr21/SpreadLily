@@ -14,7 +14,7 @@ class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: - ProPerties
     var myUid: String?
     var friends: [UserModel] = []
-    var selectedUsers: [UserModel] = []
+    var selectedUsersUid: [String] = []
     let cellIdentifier: String = "friendCell"
     var pvc: PeopleViewController?
     
@@ -40,12 +40,13 @@ class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     @objc func createRoom() {
-        if(self.selectedUsers.count > 1) {
-            
+        if(self.selectedUsersUid.count > 1) {
+            let groupChatRoomVC = self.storyboard?.instantiateViewController(identifier: "groupChatRoomViewController") as! GroupChatRoomViewController
+            groupChatRoomVC.destinationsUid = self.selectedUsersUid
         } else {
             self.dismiss(animated: false) {
                 let chatRoomVC = self.storyboard?.instantiateViewController(identifier: "chatRoomViewController") as! ChatRoomViewController
-                chatRoomVC.destinationUid = self.selectedUsers[0].uid
+                chatRoomVC.destinationUid = self.selectedUsersUid[0]
 
                 self.pvc?.navigationController?.pushViewController(chatRoomVC, animated: true)
             }
@@ -98,14 +99,12 @@ class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITab
     func didTap(_ checkBox: BEMCheckBox) {
         let selectedFriend = self.friends[checkBox.tag]
         if(checkBox.on) {
-            self.selectedUsers.append(selectedFriend)
-//            self.selectedUsers[friendUid!] = true
+            selectedUsersUid.append(selectedFriend.uid!)
         } else {
-            self.selectedUsers.removeLast()
-//            self.selectedUsers.removeValue(forKey: friendUid!)
+            self.selectedUsersUid.removeLast()
         }
         
-        if(self.selectedUsers.count < 1) {
+        if(self.selectedUsersUid.count < 1) {
             self.createRoomButton.isEnabled = false
         } else {
             self.createRoomButton.isEnabled = true
