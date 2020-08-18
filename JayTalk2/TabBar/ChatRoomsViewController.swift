@@ -22,6 +22,8 @@ class ChatRoomsViewController: UIViewController,UITableViewDataSource, UITableVi
     func getChatRoomsList() {
         Database.database().reference().child("chatRooms").queryOrdered(byChild: "users/" + self.myUid!).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { (dataSnapShot) in
             self.chatRooms.removeAll()
+            self.chatRoomUid.removeAll()
+            
             for item in dataSnapShot.children.allObjects as! [DataSnapshot] {
                 if let chatRoomDic = item.value as? [String:AnyObject] {
                     let chatModel = ChatModel(JSON: chatRoomDic)
@@ -92,13 +94,21 @@ class ChatRoomsViewController: UIViewController,UITableViewDataSource, UITableVi
         
         let usersCount = self.chatRooms[indexPath.row].users.count
         if(usersCount > 2) {
+            let groupChatRoomVC = self.storyboard?.instantiateViewController(identifier: "groupChatRoomViewController") as! GroupChatRoomViewController
+            groupChatRoomVC.destinationsUid = self.destinationsUids[indexPath.row]
+            groupChatRoomVC.chatRoomUid = self.chatRoomUid[indexPath.row]
+            groupChatRoomVC.newRoom = false
             
+            self.navigationController?.pushViewController(groupChatRoomVC, animated: true)
         } else {
             let chatRoomVC = self.storyboard?.instantiateViewController(identifier: "chatRoomViewController") as! ChatRoomViewController
             chatRoomVC.destinationUid = self.destinationsUids[indexPath.row][0]
+            
             self.navigationController?.pushViewController(chatRoomVC, animated: true)
         }
     }
+    
+    
     
     // MARK: - Life Cycles
     

@@ -563,6 +563,7 @@
                                 <rect key="frame" x="20" y="828" width="321" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="321" id="9vh-44-0Aa"/>
+                                    <constraint firstAttribute="height" constant="34" id="d7M-9W-jtk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -570,6 +571,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNn-MN-HEe">
                                 <rect key="frame" x="354" y="828" width="40" height="34"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="BZZ-Zk-qMW"/>
+                                    <constraint firstAttribute="height" constant="34" id="Cxb-0K-pD3"/>
+                                </constraints>
                                 <state key="normal" title="Send">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -580,16 +585,21 @@
                             <constraint firstItem="va1-y8-y6D" firstAttribute="trailing" secondItem="KbT-C5-Ty1" secondAttribute="trailing" id="4rx-lD-Zsn"/>
                             <constraint firstItem="CNn-MN-HEe" firstAttribute="bottom" secondItem="va1-y8-y6D" secondAttribute="bottom" id="7Yd-H5-z2R"/>
                             <constraint firstItem="KbT-C5-Ty1" firstAttribute="leading" secondItem="va1-y8-y6D" secondAttribute="leading" id="FMH-mZ-BtP"/>
-                            <constraint firstItem="CNn-MN-HEe" firstAttribute="top" secondItem="KbT-C5-Ty1" secondAttribute="bottom" id="J3K-ep-rxB"/>
                             <constraint firstItem="CNn-MN-HEe" firstAttribute="leading" secondItem="maG-iK-iHC" secondAttribute="trailing" constant="13" id="Mlq-Wa-SYE"/>
-                            <constraint firstItem="maG-iK-iHC" firstAttribute="bottom" secondItem="va1-y8-y6D" secondAttribute="bottom" id="UlG-DT-SbE"/>
                             <constraint firstItem="maG-iK-iHC" firstAttribute="leading" secondItem="va1-y8-y6D" secondAttribute="leading" constant="20" id="e3w-w6-HRd"/>
+                            <constraint firstItem="maG-iK-iHC" firstAttribute="top" secondItem="KbT-C5-Ty1" secondAttribute="bottom" id="lLY-5d-Npx"/>
                             <constraint firstItem="KbT-C5-Ty1" firstAttribute="top" secondItem="va1-y8-y6D" secondAttribute="top" id="lqh-68-SGs"/>
                             <constraint firstItem="maG-iK-iHC" firstAttribute="centerY" secondItem="CNn-MN-HEe" secondAttribute="centerY" id="sOq-GA-UWX"/>
                             <constraint firstItem="va1-y8-y6D" firstAttribute="trailing" secondItem="CNn-MN-HEe" secondAttribute="trailing" constant="20" id="yIP-nV-QUz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="va1-y8-y6D"/>
                     </view>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="7Yd-H5-z2R" id="DgM-sk-e10"/>
+                        <outlet property="messageTextField" destination="maG-iK-iHC" id="CC5-F4-WPf"/>
+                        <outlet property="sendButton" destination="CNn-MN-HEe" id="8oo-QW-nER"/>
+                        <outlet property="tableView" destination="KbT-C5-Ty1" id="m6x-rJ-a5g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xW7-aB-v4m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -716,7 +726,7 @@
                                                         <constraint firstAttribute="width" constant="30" id="j79-r2-QxG"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8BJ-Fw-yuN">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8BJ-Fw-yuN">
                                                     <rect key="frame" x="70" y="10.5" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="5gf-78-MYC"/>

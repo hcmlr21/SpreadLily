@@ -22,6 +22,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - Methods
     
     func checkMessageSent() {
+        //if messages were not sent, room will be deleted
         Database.database().reference().child("chatRooms").child(self.chatRoomUid!).observeSingleEvent(of: .value, with: { (dataSnapShot) in
             let roomInfo = dataSnapShot.value as! [String: Any]
             if roomInfo["comments"] == nil {
@@ -38,13 +39,11 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             ]
         ]
         
-        if(self.chatRoomUid == nil) {
-            self.sendButton.isEnabled = false
-            
-            Database.database().reference().child("chatRooms").childByAutoId().setValue(roomInfo) { (error, ref) in
-                if(error == nil) {
-                    self.checkRoom()
-                }
+        self.sendButton.isEnabled = false
+        
+        Database.database().reference().child("chatRooms").childByAutoId().setValue(roomInfo) { (error, ref) in
+            if(error == nil) {
+                self.checkRoom()
             }
         }
     }
@@ -206,8 +205,6 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.addGestureRecognizer(tap)
         
         self.sendButton.addTarget(self, action: #selector(self.sendMessage), for: .touchUpInside)
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -219,6 +216,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
+        
         self.tabBarController?.tabBar.isHidden = false
         NotificationCenter.default.removeObserver(self)
         self.databaseRef?.removeObserver(withHandle: self.observe!)

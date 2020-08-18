@@ -30,7 +30,6 @@ class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITab
                 if(userModel.uid != self.myUid) {
                     self.friends.append(userModel)
                 }
-                
             }
             
             DispatchQueue.main.async {
@@ -40,11 +39,14 @@ class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     @objc func createRoom() {
-        if(self.selectedUsersUid.count > 1) {
-            let groupChatRoomVC = self.storyboard?.instantiateViewController(identifier: "groupChatRoomViewController") as! GroupChatRoomViewController
-            groupChatRoomVC.destinationsUid = self.selectedUsersUid
-        } else {
-            self.dismiss(animated: false) {
+        self.dismiss(animated: false) {
+            if(self.selectedUsersUid.count > 1) {
+                let groupChatRoomVC = self.storyboard?.instantiateViewController(identifier: "groupChatRoomViewController") as! GroupChatRoomViewController
+                groupChatRoomVC.destinationsUid = self.selectedUsersUid
+                groupChatRoomVC.newRoom = true
+                
+                self.pvc?.navigationController?.pushViewController(groupChatRoomVC, animated: true)
+            } else {
                 let chatRoomVC = self.storyboard?.instantiateViewController(identifier: "chatRoomViewController") as! ChatRoomViewController
                 chatRoomVC.destinationUid = self.selectedUsersUid[0]
 
@@ -68,6 +70,10 @@ class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITab
         return self.friends.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? SelectFrinedTableCell else {
             return UITableViewCell()
@@ -78,6 +84,7 @@ class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITab
         cell.userNameLabel.text = friendInfo.userName
         
         let imageUrl = URL(string: friendInfo.profileImageUrl!)
+        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
         cell.profileImageView.kf.setImage(with: imageUrl!)
         
         cell.checkBoxView.delegate = self
@@ -86,14 +93,12 @@ class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! SelectFrinedTableCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! SelectFrinedTableCell
         
 //        cell.checkBoxView.setOn(!(cell.checkBoxView.on), animated: true)
 //        cell.checkBoxView.reload()
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        
     }
     
     func didTap(_ checkBox: BEMCheckBox) {
