@@ -43,7 +43,6 @@ class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITab
             if(self.selectedUsersUid.count > 1) {
                 let groupChatRoomVC = self.storyboard?.instantiateViewController(identifier: "groupChatRoomViewController") as! GroupChatRoomViewController
                 groupChatRoomVC.destinationsUid = self.selectedUsersUid
-                groupChatRoomVC.newRoom = true
                 
                 self.pvc?.navigationController?.pushViewController(groupChatRoomVC, animated: true)
             } else {

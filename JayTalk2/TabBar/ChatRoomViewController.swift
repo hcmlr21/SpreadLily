@@ -39,30 +39,29 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             ]
         ]
         
-        self.sendButton.isEnabled = false
-        
         Database.database().reference().child("chatRooms").childByAutoId().setValue(roomInfo) { (error, ref) in
             if(error == nil) {
-                self.checkRoom()
+                self.chatRoomUid = ref.key
+                self.getDestinationInfo()
+                //self.checkRoom()
             }
         }
     }
     
     func checkRoom() {
-        //get room uid
+        //get room uid in case user are from People section
         Database.database().reference().child("chatRooms").queryOrdered(byChild: "users/" + self.myUid!).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { (dataSnapShot) in
             for item in dataSnapShot.children.allObjects as! [DataSnapshot]  {
                 if let chatRoomDic = item.value as? [String:AnyObject] {
                     let chatModel = ChatModel(JSON: chatRoomDic)
                     if(chatModel?.users.count == 2 && chatModel?.users[self.destinationUid!] == true) {
                         self.chatRoomUid = item.key
-                        self.sendButton.isEnabled = true
                         self.getDestinationInfo()
                     }
                 }
             }
-            // if room uid doesn't exist
-            if(self.chatRoomUid == nil) {
+            
+            if (self.chatRoomUid == nil) {
                 self.createRoom()
             }
         })
@@ -93,9 +92,26 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
                 self.messages.append(message!)
             }
             
-            self.tableView.reloadData()
-            if(self.messages.count > 0) {
-                self.tableView.scrollToRow(at: IndexPath(item: self.messages.count - 1, section: 0), at: .bottom, animated: true)
+            let nsMessagesDic = messagesDic as NSDictionary
+            
+            if(self.messages.last?.readUsers == nil) {
+                return
+            }
+            
+            if(!(self.messages.last?.readUsers.keys.contains(self.myUid!))!) {
+                dataSnapShot.ref.updateChildValues(nsMessagesDic as! [AnyHashable : Any]) { (error, ref) in
+                    self.tableView.reloadData()
+                    
+                    if(self.messages.count > 0) {
+                        self.tableView.scrollToRow(at: IndexPath(item: self.messages.count - 1, section: 0), at: .bottom, animated: false)
+                    }
+                }
+            } else {
+                self.tableView.reloadData()
+                
+                if(self.messages.count > 0) {
+                    self.tableView.scrollToRow(at: IndexPath(item: self.messages.count - 1, section: 0), at: .bottom, animated: false)
+                }
             }
         })
     }
@@ -109,6 +125,20 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         
         Database.database().reference().child("chatRooms").child(self.chatRoomUid!).child("comments").childByAutoId().setValue(messageInfo) { (error, ref) in
             self.messageTextField.text = ""
+        }
+    }
+    
+    func setUnreadCount(label: UILabel?, position: Int?) {
+        
+        let readCount = self.messages[position!].readUsers.count
+        
+        let unreadCount = 2 - readCount
+                       
+        if(unreadCount > 0) {
+            label?.isHidden = false
+            label?.text = String(unreadCount)
+        } else {
+            label?.isHidden = true
         }
     }
     
@@ -163,6 +193,8 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.timeStampLabel.text = time.todayTime
             }
             
+            self.setUnreadCount(label: cell.unreadCountLabel, position: indexPath.row)
+            
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "destinationMessageCell", for: indexPath) as? DestinationMessageTableCell else {
@@ -183,6 +215,8 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             
             cell.userNameLabel.text = self.destinationUserModel?.userName
             
+            self.setUnreadCount(label: cell.unreadCountLabel, position: indexPath.row)
+            
             return cell
         }
     }
@@ -199,7 +233,11 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.myUid = Auth.auth().currentUser?.uid
         
-        self.checkRoom()
+        if(self.chatRoomUid == nil) {
+            self.checkRoom()
+        } else {
+            self.getDestinationInfo()
+        }
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(tap)

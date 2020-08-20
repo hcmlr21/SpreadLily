@@ -16,6 +16,7 @@ class ChatRoomsViewController: UIViewController,UITableViewDataSource, UITableVi
     var myUid: String?
     var chatRoomUid: [String] = []
     var destinationsUids: [[String]] = []
+    var destinationsUsersModel: [[UserModel]] = []
     var chatRooms: [ChatModel] = []
     
     // MARK: - Methods
@@ -31,6 +32,7 @@ class ChatRoomsViewController: UIViewController,UITableViewDataSource, UITableVi
                     self.chatRooms.append(chatModel!)
                 }
             }
+            
             self.tableView.reloadData()
         })
     }
@@ -51,41 +53,63 @@ class ChatRoomsViewController: UIViewController,UITableViewDataSource, UITableVi
         }
         
         var usersUid: [String] = []
-        var destinationUid: String?
-        
+
         for user in self.chatRooms[indexPath.row].users {
             if user.key != self.myUid {
-                destinationUid = user.key
-                usersUid.append(destinationUid!)
+                usersUid.append(user.key)
             }
         }
-        
+
+        usersUid = usersUid.sorted(by: {$0 > $1})
         self.destinationsUids.append(usersUid)
         
-        Database.database().reference().child("users").child(destinationUid!).observeSingleEvent(of: .value, with: { (dataSnapShot) in
-            let userModel = UserModel()
-            userModel.setValuesForKeys(dataSnapShot.value as! [String : AnyObject])
-
-            cell.titleLabel.text = userModel.userName
-
-            let imageUrl = URL(string: userModel.profileImageUrl!)
-            cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
-            cell.profileImageView.clipsToBounds = true
-            cell.profileImageView.kf.setImage(with: imageUrl!)
-
-            if(self.chatRooms[indexPath.row].comments.keys.count == 0) {
-                cell.lastMessageLabel.text = ""
-                cell.timeStampLabel.text = ""
-                return
-            }
-
-            let lastMessageKey = self.chatRooms[indexPath.row].comments.keys.sorted() {$0 > $1}
-            let lastMessageInfo = self.chatRooms[indexPath.row].comments[lastMessageKey[0]]
-            cell.lastMessageLabel.text = lastMessageInfo?.message
-            cell.timeStampLabel.text = lastMessageInfo?.timeStamp?.todayTime
-        })
-
-
+        var usersModel: [UserModel] = []
+        for destinationUid in usersUid {
+            
+            Database.database().reference().child("users").child(destinationUid).observeSingleEvent(of: .value, with: { (dataSnapShot) in
+                let userModel = UserModel()
+                userModel.setValuesForKeys(dataSnapShot.value as! [String : AnyObject])
+                usersModel.append(userModel)
+                
+                if(usersModel.count > 1) {
+                    for (index, userModel) in usersModel.enumerated() {
+                        if(index == 0) {
+                            cell.titleLabel.text = userModel.userName
+                            continue
+                        } else if(index > 2) {
+                            break
+                        }
+                        
+                        cell.titleLabel.text! += ", " + userModel.userName!
+                    }
+                    
+                    cell.usersCountLabel.isHidden = false
+                    cell.usersCountLabel.text = String(usersModel.count + 1)
+                    
+                    //profile image 추가 필요
+                } else {
+                    cell.titleLabel.text = userModel.userName
+                    
+                    let imageUrl = URL(string: userModel.profileImageUrl!)
+                    cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
+                    cell.profileImageView.clipsToBounds = true
+                    cell.profileImageView.kf.setImage(with: imageUrl!)
+                    
+                    cell.usersCountLabel.isHidden = true
+                }
+                
+                if(self.chatRooms[indexPath.row].comments.keys.count == 0) {
+                    cell.lastMessageLabel.text = ""
+                    cell.timeStampLabel.text = ""
+                } else {
+                    let lastMessageKey = self.chatRooms[indexPath.row].comments.keys.sorted() {$0 > $1}
+                    let lastMessageInfo = self.chatRooms[indexPath.row].comments[lastMessageKey[0]]
+                    cell.lastMessageLabel.text = lastMessageInfo?.message
+                    cell.timeStampLabel.text = lastMessageInfo?.timeStamp?.todayTime
+                }
+            })
+        }
+        
         return cell
     }
     
@@ -97,18 +121,16 @@ class ChatRoomsViewController: UIViewController,UITableViewDataSource, UITableVi
             let groupChatRoomVC = self.storyboard?.instantiateViewController(identifier: "groupChatRoomViewController") as! GroupChatRoomViewController
             groupChatRoomVC.destinationsUid = self.destinationsUids[indexPath.row]
             groupChatRoomVC.chatRoomUid = self.chatRoomUid[indexPath.row]
-            groupChatRoomVC.newRoom = false
             
             self.navigationController?.pushViewController(groupChatRoomVC, animated: true)
         } else {
             let chatRoomVC = self.storyboard?.instantiateViewController(identifier: "chatRoomViewController") as! ChatRoomViewController
             chatRoomVC.destinationUid = self.destinationsUids[indexPath.row][0]
+            chatRoomVC.chatRoomUid = self.chatRoomUid[indexPath.row]
             
             self.navigationController?.pushViewController(chatRoomVC, animated: true)
         }
     }
-    
-    
     
     // MARK: - Life Cycles
     
@@ -132,5 +154,5 @@ class ChatRoomTableCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var lastMessageLabel: UILabel!
     @IBOutlet weak var timeStampLabel: UILabel!
-    
+    @IBOutlet weak var usersCountLabel: UILabel!
 }
