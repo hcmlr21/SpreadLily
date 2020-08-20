@@ -8,9 +8,10 @@
 
 import UIKit
 import Firebase
+import SnapKit
 import Kingfisher
 
-class PeopleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PeopleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // MARK: - ProPerties
     var myUid: String?
     let cellIdentifier: String = "userCell"
@@ -31,17 +32,45 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
         selectFriendButton.layer.cornerRadius = 25
         selectFriendButton.layer.masksToBounds = true
         
-//
-//        let label = UILabel()
-//        label.text = "+"
-//        label.textColor = UIColor.white
-//        selectFriendButton.addSubview(label)
+
+        let label = UILabel()
+        label.text = "+"
+        label.font = label.font.withSize(30)
+        label.textColor = UIColor.white
+        selectFriendButton.addSubview(label)
+        label.snp.makeConstraints { (m) in
+            m.centerX.equalTo(selectFriendButton)
+            m.centerY.equalTo(selectFriendButton)
+        }
     }
     
     @objc func showSelectFriendViewController() {
         let selectFrinedVC = self.storyboard?.instantiateViewController(identifier: "selectFrinedViewController") as! SelectFrinedViewController
         selectFrinedVC.pvc = self
         self.present(selectFrinedVC, animated: true, completion: nil)
+    }
+    
+    func getUserList() {
+        Database.database().reference().child("users").observe(.value, with: { (dataSnapShot) in
+            self.myInfo.removeAll()
+            self.friendsInfo.removeAll()
+            
+            for item in dataSnapShot.children.allObjects as! [DataSnapshot] {
+                
+                let userModel = UserModel()
+                userModel.setValuesForKeys(item.value as! [String : Any])
+                
+                if userModel.uid == self.myUid {
+                    self.myInfo.append(userModel)
+                } else {
+                    self.friendsInfo.append(userModel)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
     }
     
     // MARK: - IBOutlets
@@ -108,28 +137,30 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
         }
         nameLabel.text = userInfo.userName
         
-        let conditionCommentLabel = cell.conditionCommentLabel!
-        conditionCommentLabel.snp.makeConstraints { (m) in
-            m.centerX.equalTo(cell.conditionCommentBackground)
-            m.centerY.equalTo(cell.conditionCommentBackground)
-        }
-        
         if let conditionComment = userInfo.conditionComment {
-            conditionCommentLabel.text = conditionComment
-        }
-        
-        cell.conditionCommentBackground.snp.makeConstraints { (m) in
-            m.right.equalTo(cell).offset(-10)
-            m.centerY.equalTo(cell)
+            cell.conditionCommentLabel.isHidden = false
+            cell.conditionCommentBackground.isHidden = false
             
-            if let count = conditionCommentLabel.text?.count {
-                m.width.equalTo(10 * count)
-            } else{
-                m.width.equalTo(0)
+            let conditionCommentLabel = cell.conditionCommentLabel!
+            
+            cell.conditionCommentBackground.snp.makeConstraints { (m) in
+                m.height.equalTo(35)
+                m.width.equalTo(15 * conditionComment.count)
+                m.right.equalTo(cell).offset(-10)
+                m.centerY.equalTo(cell)
             }
-            m.height.equalTo(35)
+            
+            conditionCommentLabel.snp.makeConstraints { (m) in
+                m.centerX.equalTo(cell.conditionCommentBackground)
+                m.centerY.equalTo(cell.conditionCommentBackground)
+            }
+            conditionCommentLabel.text = conditionComment
+            
+            cell.conditionCommentBackground.backgroundColor = UIColor.gray
+        } else {
+            cell.conditionCommentLabel.isHidden = true
+            cell.conditionCommentBackground.isHidden = true
         }
-        cell.conditionCommentBackground.backgroundColor = UIColor.gray
         
         return cell
     }
@@ -138,7 +169,45 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
         
         if(indexPath.section == 0){
+            let alertController = UIAlertController(title: "내 프로필", message: nil, preferredStyle: .actionSheet)
             
+            let conditionCommentAction = UIAlertAction(title: "상태메세지", style: .default) { (action) in
+                let alertController = UIAlertController(title: "상태메세지", message: nil, preferredStyle: .alert)
+                alertController.addTextField { (textField) in
+                    textField.placeholder = "상태메세지"
+                }
+
+                let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+                    if let textField = alertController.textFields?.first {
+                        let dic = ["conditionComment": textField.text]
+                        Database.database().reference().child("users").child(self.myUid!).updateChildValues(dic)
+                    }
+                }
+
+                let cancelAction = UIAlertAction(title: "취소", style: .default) { (action) in
+                }
+
+                alertController.addAction(cancelAction)
+                alertController.addAction(okAction)
+
+                self.present(alertController, animated: true, completion: nil)
+            }
+            
+            let profileImageAction = UIAlertAction(title: "프로필 사진", style: .default) { (action) in
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.allowsEditing = true
+                imagePicker.sourceType = .photoLibrary
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+            
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            
+            alertController.addAction(conditionCommentAction)
+            alertController.addAction(profileImageAction)
+            alertController.addAction(cancelAction)
+            
+            present(alertController, animated: true, completion: nil)
         } else if(indexPath.section == 1) {
             let viewIdentifier: String = "chatRoomViewController"
             let chatRoomVC = self.storyboard?.instantiateViewController(identifier: viewIdentifier) as! ChatRoomViewController
@@ -148,32 +217,34 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let profileImage = (info[.originalImage] as? UIImage)?.jpegData(compressionQuality: 0.1)
+        
+        let storageRef = Storage.storage().reference().child("userImage").child(myUid!)
+//        storageRef.delete { (error) in
+//            if(error == nil) {
+//
+//            }
+//        }
+        storageRef.putData(profileImage!, metadata: nil) { (data, error) in
+            storageRef.downloadURL { (url, error) in
+                let value = ["profileImageUrl":url?.absoluteString]
+                Database.database().reference().child("users").child(self.myUid!).updateChildValues(value) { (error, ref) in
+                    if(error == nil) {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+    }
+    
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.myUid = Auth.auth().currentUser?.uid
         
-        Database.database().reference().child("users").observe(.value, with: { (dataSnapShot) in
-            self.myInfo.removeAll()
-            self.friendsInfo.removeAll()
-            
-            for item in dataSnapShot.children.allObjects as! [DataSnapshot] {
-                
-                let userModel = UserModel()
-                userModel.setValuesForKeys(item.value as! [String : Any])
-                
-                if userModel.uid == self.myUid {
-                    self.myInfo.append(userModel)
-                } else {
-                    self.friendsInfo.append(userModel)
-                }
-            }
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        })
+        self.getUserList()
      
         self.addSelectFriendButton()
     }
