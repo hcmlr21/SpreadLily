@@ -221,11 +221,6 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
         let profileImage = (info[.originalImage] as? UIImage)?.jpegData(compressionQuality: 0.1)
         
         let storageRef = Storage.storage().reference().child("userImage").child(myUid!)
-//        storageRef.delete { (error) in
-//            if(error == nil) {
-//
-//            }
-//        }
         storageRef.putData(profileImage!, metadata: nil) { (data, error) in
             storageRef.downloadURL { (url, error) in
                 let value = ["profileImageUrl":url?.absoluteString]

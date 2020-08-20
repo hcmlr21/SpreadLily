@@ -615,7 +615,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="zNI-gm-y2o"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" id="dNB-7i-gVU"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="ic_account" selectedImage="ic_account" id="dNB-7i-gVU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="89J-qm-4Rk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -826,7 +826,7 @@
         <scene sceneID="NmM-FB-7pa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EZ1-GD-8db" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="People" id="6XU-D9-R3u"/>
+                    <tabBarItem key="tabBarItem" title="People" image="ic_people" selectedImage="ic_people" id="6XU-D9-R3u"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ptp-6y-dk0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -845,7 +845,7 @@
         <scene sceneID="74u-7a-4mI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TXz-eY-lgR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Message" id="dhj-x1-RuZ"/>
+                    <tabBarItem key="tabBarItem" title="Message" image="ic_chat" selectedImage="ic_chat" id="dhj-x1-RuZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PPo-so-EsY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -960,7 +960,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_account" width="24" height="24"/>
         <image name="ic_add_to_photos" width="48" height="48"/>
+        <image name="ic_chat" width="24" height="24"/>
+        <image name="ic_people" width="24" height="24"/>
         <image name="loading_icon" width="512" height="512"/>
         <image name="message_blue" width="11.5" height="9"/>
         <image name="message_gray" width="12" height="8.5"/>
