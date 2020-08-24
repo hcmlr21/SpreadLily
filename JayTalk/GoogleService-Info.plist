@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>사용자의 위치를 받습니다.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>사용자의 위치를 받습니다.</string>
+	<key>NMFClientId</key>
+	<string>2yjcp00in8</string>
 	<key>CLIENT_ID</key>
 	<string>197612814009-jsh7udlvb60cp8dbsutre585u77pias2.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
@@ -19,15 +25,15 @@
 	<key>STORAGE_BUCKET</key>
 	<string>jaytalk2-e50d2.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:197612814009:ios:a480100a89b39c85dca568</string>
 	<key>DATABASE_URL</key>

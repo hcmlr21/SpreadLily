@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E03B0302A04FFCBB0AFA293 /* Pods_JayTalk2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527144AA775A8A1E02CA026A /* Pods_JayTalk2.framework */; };
+		2FBC5A1627227537FCDD5373 /* Pods_JayTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0768C7C2E50A4F026146DC /* Pods_JayTalk.framework */; };
+		4846321724F3A73F007311EA /* BikeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846321624F3A73F007311EA /* BikeDataModel.swift */; };
+		4846321924F3A752007311EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846321824F3A752007311EA /* MapViewController.swift */; };
 		485327D824E2912D0054D725 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485327D724E2912D0054D725 /* AppDelegate.swift */; };
 		485327DA24E2912D0054D725 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485327D924E2912D0054D725 /* SceneDelegate.swift */; };
 		485327DC24E2912D0054D725 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485327DB24E2912D0054D725 /* ViewController.swift */; };
@@ -29,7 +31,10 @@
 
 /* Begin PBXFileReference section */
 		02E94609E07ED0C5B136FB16 /* Pods-JayTalk2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JayTalk2.release.xcconfig"; path = "Target Support Files/Pods-JayTalk2/Pods-JayTalk2.release.xcconfig"; sourceTree = "<group>"; };
-		485327D424E2912D0054D725 /* JayTalk2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JayTalk2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D26109EB9176F83989D289F /* Pods-JayTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JayTalk.debug.xcconfig"; path = "Target Support Files/Pods-JayTalk/Pods-JayTalk.debug.xcconfig"; sourceTree = "<group>"; };
+		4846321624F3A73F007311EA /* BikeDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeDataModel.swift; sourceTree = "<group>"; };
+		4846321824F3A752007311EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		485327D424E2912D0054D725 /* JayTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JayTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		485327D724E2912D0054D725 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		485327D924E2912D0054D725 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		485327DB24E2912D0054D725 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +53,8 @@
 		48BD87CD24E7B0420051BC4E /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		48E0DEF224E98285005F43AE /* GroupChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatRoomViewController.swift; sourceTree = "<group>"; };
 		48E0DEF424E984F0005F43AE /* SelectFrinedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFrinedViewController.swift; sourceTree = "<group>"; };
-		527144AA775A8A1E02CA026A /* Pods_JayTalk2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JayTalk2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80C4E54F08B28813F20F3A81 /* Pods-JayTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JayTalk.release.xcconfig"; path = "Target Support Files/Pods-JayTalk/Pods-JayTalk.release.xcconfig"; sourceTree = "<group>"; };
+		9E0768C7C2E50A4F026146DC /* Pods_JayTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JayTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0155B6BE4B0BF53BAF29E95 /* Pods-JayTalk2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JayTalk2.debug.xcconfig"; path = "Target Support Files/Pods-JayTalk2/Pods-JayTalk2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E03B0302A04FFCBB0AFA293 /* Pods_JayTalk2.framework in Frameworks */,
+				2FBC5A1627227537FCDD5373 /* Pods_JayTalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +73,7 @@
 		485327CB24E2912D0054D725 = {
 			isa = PBXGroup;
 			children = (
-				485327D624E2912D0054D725 /* JayTalk2 */,
+				485327D624E2912D0054D725 /* JayTalk */,
 				485327D524E2912D0054D725 /* Products */,
 				7D8011A1D3CE9B7D3A860A81 /* Pods */,
 				876F1EC8F4D8A46D63164A7C /* Frameworks */,
@@ -77,12 +83,12 @@
 		485327D524E2912D0054D725 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				485327D424E2912D0054D725 /* JayTalk2.app */,
+				485327D424E2912D0054D725 /* JayTalk.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		485327D624E2912D0054D725 /* JayTalk2 */ = {
+		485327D624E2912D0054D725 /* JayTalk */ = {
 			isa = PBXGroup;
 			children = (
 				4896FAC424E56E9900C74E58 /* Model */,
@@ -92,6 +98,7 @@
 				485327DB24E2912D0054D725 /* ViewController.swift */,
 				485327EF24E299A90054D725 /* LoginViewController.swift */,
 				485327F124E2AF1D0054D725 /* SignInViewController.swift */,
+				4846321824F3A752007311EA /* MapViewController.swift */,
 				485327DD24E2912D0054D725 /* Main.storyboard */,
 				485327E024E291300054D725 /* Assets.xcassets */,
 				485327E224E291300054D725 /* LaunchScreen.storyboard */,
@@ -99,7 +106,7 @@
 				485327EB24E2947C0054D725 /* GoogleService-Info.plist */,
 				485327ED24E296B30054D725 /* RemoteConfigDefaults.plist */,
 			);
-			path = JayTalk2;
+			path = JayTalk;
 			sourceTree = "<group>";
 		};
 		4896FAC124E56CFF00C74E58 /* TabBar */ = {
@@ -117,6 +124,7 @@
 		4896FAC424E56E9900C74E58 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4846321624F3A73F007311EA /* BikeDataModel.swift */,
 				4896FAC524E56EAE00C74E58 /* UserModel.swift */,
 				48BD87CB24E7AE2A0051BC4E /* ChatModel.swift */,
 			);
@@ -128,6 +136,8 @@
 			children = (
 				A0155B6BE4B0BF53BAF29E95 /* Pods-JayTalk2.debug.xcconfig */,
 				02E94609E07ED0C5B136FB16 /* Pods-JayTalk2.release.xcconfig */,
+				1D26109EB9176F83989D289F /* Pods-JayTalk.debug.xcconfig */,
+				80C4E54F08B28813F20F3A81 /* Pods-JayTalk.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -135,7 +145,7 @@
 		876F1EC8F4D8A46D63164A7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				527144AA775A8A1E02CA026A /* Pods_JayTalk2.framework */,
+				9E0768C7C2E50A4F026146DC /* Pods_JayTalk.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -143,9 +153,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		485327D324E2912D0054D725 /* JayTalk2 */ = {
+		485327D324E2912D0054D725 /* JayTalk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 485327E824E291300054D725 /* Build configuration list for PBXNativeTarget "JayTalk2" */;
+			buildConfigurationList = 485327E824E291300054D725 /* Build configuration list for PBXNativeTarget "JayTalk" */;
 			buildPhases = (
 				0CC668C9FCCEF01DC5DB995E /* [CP] Check Pods Manifest.lock */,
 				485327D024E2912D0054D725 /* Sources */,
@@ -157,9 +167,9 @@
 			);
 			dependencies = (
 			);
-			name = JayTalk2;
+			name = JayTalk;
 			productName = JayTalk2;
-			productReference = 485327D424E2912D0054D725 /* JayTalk2.app */;
+			productReference = 485327D424E2912D0054D725 /* JayTalk.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -177,7 +187,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 485327CF24E2912D0054D725 /* Build configuration list for PBXProject "JayTalk2" */;
+			buildConfigurationList = 485327CF24E2912D0054D725 /* Build configuration list for PBXProject "JayTalk" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -190,7 +200,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				485327D324E2912D0054D725 /* JayTalk2 */,
+				485327D324E2912D0054D725 /* JayTalk */,
 			);
 		};
 /* End PBXProject section */
@@ -226,7 +236,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JayTalk2-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-JayTalk-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -239,15 +249,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JayTalk2/Pods-JayTalk2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-JayTalk/Pods-JayTalk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JayTalk2/Pods-JayTalk2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-JayTalk/Pods-JayTalk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JayTalk2/Pods-JayTalk2-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JayTalk/Pods-JayTalk-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -263,12 +273,14 @@
 				48E0DEF324E98285005F43AE /* GroupChatRoomViewController.swift in Sources */,
 				485327D824E2912D0054D725 /* AppDelegate.swift in Sources */,
 				485327F224E2AF1D0054D725 /* SignInViewController.swift in Sources */,
+				4846321724F3A73F007311EA /* BikeDataModel.swift in Sources */,
 				485327DA24E2912D0054D725 /* SceneDelegate.swift in Sources */,
 				4896FAC324E56D5000C74E58 /* PeopleViewController.swift in Sources */,
 				48E0DEF524E984F0005F43AE /* SelectFrinedViewController.swift in Sources */,
 				48BD87CE24E7B0420051BC4E /* ChatRoomViewController.swift in Sources */,
 				48BD87CA24E681AB0051BC4E /* ChatRoomsViewController.swift in Sources */,
 				48BD87CC24E7AE2A0051BC4E /* ChatModel.swift in Sources */,
+				4846321924F3A752007311EA /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,18 +422,18 @@
 		};
 		485327E924E291300054D725 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0155B6BE4B0BF53BAF29E95 /* Pods-JayTalk2.debug.xcconfig */;
+			baseConfigurationReference = 1D26109EB9176F83989D289F /* Pods-JayTalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNVHULJDG5;
-				INFOPLIST_FILE = JayTalk2/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JayTalk/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hcmlr21.JayTalk2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JayTalk;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -429,18 +441,18 @@
 		};
 		485327EA24E291300054D725 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02E94609E07ED0C5B136FB16 /* Pods-JayTalk2.release.xcconfig */;
+			baseConfigurationReference = 80C4E54F08B28813F20F3A81 /* Pods-JayTalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNVHULJDG5;
-				INFOPLIST_FILE = JayTalk2/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JayTalk/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hcmlr21.JayTalk2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JayTalk;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -449,7 +461,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		485327CF24E2912D0054D725 /* Build configuration list for PBXProject "JayTalk2" */ = {
+		485327CF24E2912D0054D725 /* Build configuration list for PBXProject "JayTalk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				485327E624E291300054D725 /* Debug */,
@@ -458,7 +470,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		485327E824E291300054D725 /* Build configuration list for PBXNativeTarget "JayTalk2" */ = {
+		485327E824E291300054D725 /* Build configuration list for PBXNativeTarget "JayTalk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				485327E924E291300054D725 /* Debug */,

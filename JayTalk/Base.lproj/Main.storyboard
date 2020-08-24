@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HM8-aA-9Pb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,10 +7,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="IUm-io-KjS">
+            <objects>
+                <viewController id="HM8-aA-9Pb" customClass="MapViewController" customModule="JayTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="inV-dC-IWY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dU-bQ-ZKr" customClass="NMFNaverMapView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5dU-bQ-ZKr" firstAttribute="top" secondItem="rEB-7S-gTr" secondAttribute="top" id="EAp-Qv-OcW"/>
+                            <constraint firstItem="rEB-7S-gTr" firstAttribute="bottom" secondItem="5dU-bQ-ZKr" secondAttribute="bottom" id="JZH-1v-baG"/>
+                            <constraint firstItem="5dU-bQ-ZKr" firstAttribute="leading" secondItem="rEB-7S-gTr" secondAttribute="leading" id="SUH-XP-1Qi"/>
+                            <constraint firstItem="rEB-7S-gTr" firstAttribute="trailing" secondItem="5dU-bQ-ZKr" secondAttribute="trailing" id="yFa-N3-SQe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rEB-7S-gTr"/>
+                    </view>
+                    <connections>
+                        <outlet property="naverMapView" destination="5dU-bQ-ZKr" id="x9X-qB-jmP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5QY-OH-San" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57" y="-844"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JayTalk2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JayTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +55,7 @@
         <!--Login View Controller-->
         <scene sceneID="ubc-oe-fFq">
             <objects>
-                <viewController storyboardIdentifier="loginViewController" id="c1R-DR-Ytn" customClass="LoginViewController" customModule="JayTalk2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="c1R-DR-Ytn" customClass="LoginViewController" customModule="JayTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bgs-ex-QEx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,7 +153,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="xad-kQ-fj6">
             <objects>
-                <viewController storyboardIdentifier="signInViewController" id="aby-We-LiN" customClass="SignInViewController" customModule="JayTalk2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signInViewController" id="aby-We-LiN" customClass="SignInViewController" customModule="JayTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XEv-0D-JTG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -242,7 +272,7 @@
         <!--Chat Room View Controller-->
         <scene sceneID="TDR-wX-xmd">
             <objects>
-                <viewController storyboardIdentifier="chatRoomViewController" id="SdA-Ca-hLL" customClass="ChatRoomViewController" customModule="JayTalk2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chatRoomViewController" id="SdA-Ca-hLL" customClass="ChatRoomViewController" customModule="JayTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AJv-6D-Xnr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,7 +281,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="784"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myMessageCell" rowHeight="60" id="aOe-zT-Dxl" customClass="MyMessageTableCell" customModule="JayTalk2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myMessageCell" rowHeight="60" id="aOe-zT-Dxl" customClass="MyMessageTableCell" customModule="JayTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aOe-zT-Dxl" id="mX0-1M-5V4">
@@ -301,7 +331,7 @@
                                             <outlet property="unreadCountLabel" destination="pBd-73-5UZ" id="hRw-Kf-jDp"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="destinationMessageCell" rowHeight="60" id="3Qn-Ss-5ll" customClass="DestinationMessageTableCell" customModule="JayTalk2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="destinationMessageCell" rowHeight="60" id="3Qn-Ss-5ll" customClass="DestinationMessageTableCell" customModule="JayTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="88" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Qn-Ss-5ll" id="QMn-oT-mMX">
@@ -425,7 +455,7 @@
         <!--Group Chat Room View Controller-->
         <scene sceneID="hwI-Uw-Ffg">
             <objects>
-                <viewController storyboardIdentifier="groupChatRoomViewController" id="aN2-pN-6AX" customClass="GroupChatRoomViewController" customModule="JayTalk2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="groupChatRoomViewController" id="aN2-pN-6AX" customClass="GroupChatRoomViewController" customModule="JayTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hue-QC-IUJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -434,7 +464,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="784"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myMessageCell" rowHeight="60" id="bit-72-4pq" customClass="MyMessageTableCell" customModule="JayTalk2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myMessageCell" rowHeight="60" id="bit-72-4pq" customClass="MyMessageTableCell" customModule="JayTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bit-72-4pq" id="KCj-Vd-sdZ">
@@ -484,7 +514,7 @@
                                             <outlet property="unreadCountLabel" destination="ZSe-ec-P3f" id="4jI-hi-GsG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="destinationMessageCell" rowHeight="60" id="cQg-Xx-3iI" customClass="DestinationMessageTableCell" customModule="JayTalk2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="destinationMessageCell" rowHeight="60" id="cQg-Xx-3iI" customClass="DestinationMessageTableCell" customModule="JayTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="88" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cQg-Xx-3iI" id="WU4-k7-in0">
@@ -624,7 +654,7 @@
         <!--People View Controller-->
         <scene sceneID="6qT-VS-Vqj">
             <objects>
-                <viewController storyboardIdentifier="peopleViewController" id="RE0-Pk-Suo" customClass="PeopleViewController" customModule="JayTalk2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="peopleViewController" id="RE0-Pk-Suo" customClass="PeopleViewController" customModule="JayTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6kk-cU-Mjd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -633,7 +663,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="70" id="wLl-tG-mKf" customClass="PeoPleTableViewCell" customModule="JayTalk2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="70" id="wLl-tG-mKf" customClass="PeoPleTableViewCell" customModule="JayTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wLl-tG-mKf" id="K6D-od-YKd">
@@ -702,7 +732,7 @@
         <!--Select Frined View Controller-->
         <scene sceneID="Yxw-bC-fWt">
             <objects>
-                <viewController storyboardIdentifier="selectFrinedViewController" id="EBC-ec-Jmk" customClass="SelectFrinedViewController" customModule="JayTalk2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="selectFrinedViewController" id="EBC-ec-Jmk" customClass="SelectFrinedViewController" customModule="JayTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qjl-UT-BGO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -711,7 +741,7 @@
                                 <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="71" id="4nK-m0-1ho" customClass="SelectFrinedTableCell" customModule="JayTalk2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="71" id="4nK-m0-1ho" customClass="SelectFrinedTableCell" customModule="JayTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4nK-m0-1ho" id="Q7F-Kg-LCn">
@@ -863,7 +893,7 @@
         <!--Chat Rooms View Controller-->
         <scene sceneID="AhO-6w-NQ4">
             <objects>
-                <viewController id="c4B-Uc-TGB" customClass="ChatRoomsViewController" customModule="JayTalk2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="c4B-Uc-TGB" customClass="ChatRoomsViewController" customModule="JayTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C5d-fF-dlk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -872,7 +902,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatRoomCell" rowHeight="70" id="y95-QY-r2J" customClass="ChatRoomTableCell" customModule="JayTalk2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatRoomCell" rowHeight="70" id="y95-QY-r2J" customClass="ChatRoomTableCell" customModule="JayTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y95-QY-r2J" id="oF8-UA-7q1">

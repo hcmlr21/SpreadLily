@@ -141,22 +141,26 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
             cell.conditionCommentLabel.isHidden = false
             cell.conditionCommentBackground.isHidden = false
             
+            cell.conditionCommentBackground.backgroundColor = UIColor.gray
+            
             let conditionCommentLabel = cell.conditionCommentLabel!
             
+            conditionCommentLabel.text = conditionComment
+            
             cell.conditionCommentBackground.snp.makeConstraints { (m) in
-                m.height.equalTo(35)
+//                m.height.equalTo(35)
                 m.width.equalTo(15 * conditionComment.count)
-                m.right.equalTo(cell).offset(-10)
-                m.centerY.equalTo(cell)
+//                m.right.equalTo(cell).offset(-10)
+//                m.centerY.equalTo(cell)
             }
             
             conditionCommentLabel.snp.makeConstraints { (m) in
-                m.centerX.equalTo(cell.conditionCommentBackground)
-                m.centerY.equalTo(cell.conditionCommentBackground)
+//                m.centerX.equalTo(cell.conditionCommentBackground)
+//                m.centerY.equalTo(cell.conditionCommentBackground)
             }
-            conditionCommentLabel.text = conditionComment
             
-            cell.conditionCommentBackground.backgroundColor = UIColor.gray
+            
+            
         } else {
             cell.conditionCommentLabel.isHidden = true
             cell.conditionCommentBackground.isHidden = true
