@@ -18,6 +18,7 @@ class MapViewController: UIViewController {
     let apiKey = "52516b6f6768636d38306848616a70"
     var bikeDatas: [BikeDataModel.RentBikeStatus] = []
     let mapKey = "eMUPmNaPhsvBdc3GWGnMlsbA0a0oDKKcUVGK9ZB7"
+    let locationManager = CLLocationManager()
     
     
     // MARK: - Methods
@@ -84,6 +85,9 @@ class MapViewController: UIViewController {
                 }
             }
         }
+        
+        
+        
         print("끝")
     }
     
@@ -98,6 +102,7 @@ class MapViewController: UIViewController {
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.locationManager.requestWhenInUseAuthorization()
         
         self.mapView = self.naverMapView.mapView
         
