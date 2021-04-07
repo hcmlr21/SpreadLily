@@ -16,7 +16,6 @@ target 'JayTalk' do
         pod 'ObjectMapper', '~> 4.2'
         pod 'Kingfisher', '~> 5.14'
         pod 'BEMCheckBox'
-pod 'NMapsMap'
   # Pods for JayTalk
 
 end

@@ -14,4 +14,5 @@ class UserModel: NSObject {
     @objc var uid: String?
     @objc var conditionComment: String?
     @objc var pushToken: String?
+    @objc var accountType: String?
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 import Kingfisher
 
 class ChatRoomsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
@@ -24,7 +26,6 @@ class ChatRoomsViewController: UIViewController,UITableViewDataSource, UITableVi
         Database.database().reference().child("chatRooms").queryOrdered(byChild: "users/" + self.myUid!).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { (dataSnapShot) in
             self.chatRooms.removeAll()
             self.chatRoomUid.removeAll()
-            
             for item in dataSnapShot.children.allObjects as! [DataSnapshot] {
                 if let chatRoomDic = item.value as? [String:AnyObject] {
                     let chatModel = ChatModel(JSON: chatRoomDic)

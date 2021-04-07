@@ -114,7 +114,6 @@ PODS:
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
-  - NMapsMap (3.9.0)
   - ObjectMapper (4.2.0)
   - PromisesObjC (1.2.9)
   - Protobuf (3.12.0)
@@ -131,7 +130,6 @@ DEPENDENCIES:
   - Firebase/RemoteConfig
   - Firebase/Storage
   - Kingfisher (~> 5.14)
-  - NMapsMap
   - ObjectMapper (~> 4.2)
   - SnapKit (~> 5.0.0)
   - TextFieldEffects
@@ -158,7 +156,6 @@ SPEC REPOS:
     - Kingfisher
     - leveldb-library
     - nanopb
-    - NMapsMap
     - ObjectMapper
     - PromisesObjC
     - Protobuf
@@ -186,13 +183,12 @@ SPEC CHECKSUMS:
   Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
-  NMapsMap: 4ff6d7eee7aa5ca20d9006cf2c4cd1ed9d43b036
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: e4cc09ea612d0893cdcbc97ff6f05417f20ee02b
+PODFILE CHECKSUM: c744d3892ff83c71dc61c7f62d96e3f12521fd5b
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

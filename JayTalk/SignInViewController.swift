@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 
 class SignInViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // MARK: - ProPerties
@@ -47,7 +50,8 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
                             let value = [
                                 "userName":name,
                                 "profileImageUrl":url?.absoluteString,
-                                "uid":myUid!
+                                "uid":myUid!,
+                                "accountType": "user"
                             ]
                             Database.database().reference().child("users").child(myUid!).setValue(value) { (error, ref) in
                                 if(error == nil) {
@@ -61,7 +65,6 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
                 }
             }
         }
-        
     }
     
     @objc func pressCancel() {

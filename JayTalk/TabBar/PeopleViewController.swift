@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
 import SnapKit
 import Kingfisher
 
@@ -56,7 +59,8 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
             self.friendsInfo.removeAll()
             
             for item in dataSnapShot.children.allObjects as! [DataSnapshot] {
-                
+                print("친구")
+                debugPrint(item)
                 let userModel = UserModel()
                 userModel.setValuesForKeys(item.value as! [String : Any])
                 
@@ -94,7 +98,7 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 50
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

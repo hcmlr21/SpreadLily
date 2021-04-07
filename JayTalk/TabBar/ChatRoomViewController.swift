@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: - ProPerties
@@ -44,6 +46,9 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
                 self.chatRoomUid = ref.key
                 self.getDestinationInfo()
                 //self.checkRoom()
+            } else {
+                print("방 생성 에러")
+                print(error)
             }
         }
     }
@@ -123,9 +128,8 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             "timeStamp":ServerValue.timestamp()
         ]
         
-        Database.database().reference().child("chatRooms").child(self.chatRoomUid!).child("comments").childByAutoId().setValue(messageInfo) { (error, ref) in
-            self.messageTextField.text = ""
-        }
+        self.messageTextField.text = ""
+        Database.database().reference().child("chatRooms").child(self.chatRoomUid!).child("comments").childByAutoId().setValue(messageInfo)
     }
     
     func setUnreadCount(label: UILabel?, position: Int?) {
