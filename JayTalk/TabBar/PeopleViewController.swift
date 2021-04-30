@@ -48,9 +48,9 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @objc func showSelectFriendViewController() {
-        let selectFrinedVC = self.storyboard?.instantiateViewController(identifier: "selectFrinedViewController") as! SelectFrinedViewController
-        selectFrinedVC.pvc = self
-        self.present(selectFrinedVC, animated: true, completion: nil)
+        let selectFriendVC = self.storyboard?.instantiateViewController(identifier: "selectFriendViewController") as! SelectFriendViewController
+        selectFriendVC.pvc = self
+        self.present(selectFriendVC, animated: true, completion: nil)
     }
     
     func getUserList() {
@@ -162,8 +162,6 @@ class PeopleViewController: UIViewController, UITableViewDataSource, UITableView
 //                m.centerX.equalTo(cell.conditionCommentBackground)
 //                m.centerY.equalTo(cell.conditionCommentBackground)
             }
-            
-            
             
         } else {
             cell.conditionCommentLabel.isHidden = true

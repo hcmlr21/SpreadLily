@@ -58,6 +58,21 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
                                     self.dismiss(animated: true, completion: nil)
                                 }
                             }
+                            
+                            Database.database().reference().child("questions").observeSingleEvent(of: .value) { (dataSnapShot) in
+                                var questions: [String] = []
+                                    
+                                    
+                                for item in dataSnapShot.children.allObjects as! [DataSnapshot] {
+                                    if let question = item.value as? String {
+                                        questions.append(question)
+                                    }
+                                }
+                                
+                                Database.database().reference().child("QnAData").child(myUid!).child("questions").setValue(questions)
+                            }
+                            
+                            
                         }
                     }
                 } else {

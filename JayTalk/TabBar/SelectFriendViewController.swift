@@ -1,5 +1,5 @@
 //
-//  SelectFrinedViewController.swift
+//  SelectFriendViewController.swift
 //  JayTalk2
 //
 //  Created by Jkookoo on 2020/08/17.
@@ -8,10 +8,12 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseDatabase
 import BEMCheckBox
 
-class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BEMCheckBoxDelegate {
+
+class SelectFriendViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BEMCheckBoxDelegate {
     // MARK: - ProPerties
     var myUid: String?
     var friends: [UserModel] = []
@@ -75,7 +77,7 @@ class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? SelectFrinedTableCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? SelectFriendTableCell else {
             return UITableViewCell()
         }
         
@@ -129,7 +131,7 @@ class SelectFrinedViewController: UIViewController, UITableViewDataSource, UITab
     }
 }
 
-class SelectFrinedTableCell: UITableViewCell {
+class SelectFriendTableCell: UITableViewCell {
     @IBOutlet weak var checkBoxView: BEMCheckBox!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!

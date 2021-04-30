@@ -22,7 +22,6 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     var observe: UInt?
     
     // MARK: - Methods
-    
     func checkMessageSent() {
         //if messages were not sent, room will be deleted
         Database.database().reference().child("chatRooms").child(self.chatRoomUid!).observeSingleEvent(of: .value, with: { (dataSnapShot) in
@@ -130,6 +129,13 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.messageTextField.text = ""
         Database.database().reference().child("chatRooms").child(self.chatRoomUid!).child("comments").childByAutoId().setValue(messageInfo)
+        
+//        Database.database().reference().child("questions").observeSingleEvent(of: .value) { (dataSnapShot) in
+//            for item in dataSnapShot.children.allObjects as! [DataSnapshot] {
+//                print(item.key)
+//                print(item.value)
+//            }
+//        }
     }
     
     func setUnreadCount(label: UILabel?, position: Int?) {
